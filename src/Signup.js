@@ -2,23 +2,18 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import users from "./Users";
 
-export default function Login({ onSuccess = () => {} }) {
-  const [userName, setUserName] = useState("");
+export default function Signup({ onSuccess = () => {} }) {
+  const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  function checkLogin() {
+  function checkSignup() {
     const userExists = users[userName];
-    if (!userExists) {
-      alert("Invalid username");
-      return;
+    if (userExists) {
+      alert("Username already exists");
     }
 
-    if (userExists !== password) {
-      alert("Invalid password");
-      return;
-    }
-
-    alert("Login Successful");
+    users[userName] = password;
+    alert("Sign In Successful");
     onSuccess();
   }
 
@@ -26,7 +21,7 @@ export default function Login({ onSuccess = () => {} }) {
     <>
       <Modal.Dialog>
         <Modal.Body>
-          <Modal.Title>Login</Modal.Title>
+          <Modal.Title>Sign Up</Modal.Title>
           <form>
             <input
               type="text"
@@ -34,7 +29,7 @@ export default function Login({ onSuccess = () => {} }) {
               style={{ padding: "5px" }}
               value={userName}
               onChange={(event) => {
-                setUserName(event.target.value);
+                setUsername(event.target.value);
               }}
             />
             <br />
@@ -47,11 +42,12 @@ export default function Login({ onSuccess = () => {} }) {
               onChange={(event) => {
                 setPassword(event.target.value);
               }}
-            ></input>
+            />
             <br />
             <br />
-            <input onClick={checkLogin} type="button" value="Login"></input>
+            <input onClick={checkSignup} type="button" value="Sign Up" />
           </form>
+          e
         </Modal.Body>
       </Modal.Dialog>
     </>
