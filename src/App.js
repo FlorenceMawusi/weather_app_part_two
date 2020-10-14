@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Signup from "./Signup";
 import Login from "./Login";
 import WeatherFetch from "./weatherFetch.js";
+import WeatherHistory from "./WeatherHistory.js";
+
 
 function App() {
   const [showScreen, setshowScreen] = useState('main');
@@ -52,7 +54,7 @@ function App() {
 
       <div
         style={{
-          background: `url(./weather.jpg)`,
+          background: `url(./mainpic.jpg)`,
           backgroundPosition: "center",
           width: "100vw",
           height: "100vh",
@@ -71,6 +73,8 @@ function App() {
 
         </center>
       </div>
+
+      {isLoggedIn === true && <WeatherHistory />}
     </>
   );
 }
