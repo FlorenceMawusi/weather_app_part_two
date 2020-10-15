@@ -88,7 +88,7 @@ export default function WeatherFetch({ onScreen = () => {}, isLoggedIn }){
         </Button>
       </Form>
 
-      {isLoggedIn === true && <WeatherHistory newHistoryData = {newHistoryData} searchWeatherApi = {searchWeatherApi}/>}
+      {isLoggedIn === true && <WeatherHistory newHistoryData = {newHistoryData} />}
     </>
   )
 }
