@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Signup from "./Signup";
 import Login from "./Login";
-import WeatherFetch from "./weatherFetch.js";
-import WeatherHistory from "./WeatherHistory.js";
+import WeatherFetch from "./WeatherFetch.js";
 
 
 function App() {
@@ -69,12 +68,11 @@ function App() {
           {showScreen ==='signup' && <Signup 
           onSuccess = {() => {setshowScreen('main'); setIsLoggedIn(true);}}
           />}
-         {showScreen === 'main' && <WeatherFetch />}
+         {showScreen === 'main' && <WeatherFetch isLoggedIn = {isLoggedIn}/>}
 
         </center>
       </div>
 
-      {isLoggedIn === true && <WeatherHistory />}
     </>
   );
 }

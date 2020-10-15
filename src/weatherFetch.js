@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
-import { useHistory } from "react-router";
+import WeatherHistory from './WeatherHistory';
 
-export default function WeatherFetch({ onScreen = () => {} }){
+export default function WeatherFetch({ onScreen = () => {}, isLoggedIn }){
+  
   const [input, setInput] = useState('');
   const [weatherData, setWeatherData] = useState({});
+  const [newHistoryData, setNewHistoryData] = useState([]);
 
    
-  let history = useHistory;
-  console.log("hi there",history);
+ 
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -44,8 +45,8 @@ export default function WeatherFetch({ onScreen = () => {} }){
         .then((res) => res.json())
         .then((data) => {
           setWeatherData(data);
-          history.push(data);
-          console.log('his ->',history);
+          setNewHistoryData(prev => ([...prev, data]));
+          console.log('search history',newHistoryData);
         })
         .catch((err) => console.error(err));
         
@@ -86,6 +87,8 @@ export default function WeatherFetch({ onScreen = () => {} }){
           Search
         </Button>
       </Form>
+
+      {isLoggedIn === true && <WeatherHistory newHistoryData = {newHistoryData} searchWeatherApi = {searchWeatherApi}/>}
     </>
   )
 }
