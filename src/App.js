@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Signup from "./Signup";
 import Login from "./Login";
-import WeatherFetch from "./WeatherFetch.js";
+import WeatherFetch from "./weatherFetch.js";
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
           padding: '10px 50px',
         }}
       >
-        <div style={{minWidth: '200px',}}>Florence's Weather app</div>
+        <div style={{minWidth: '200px',}}>Cloudily App</div>
 
         {
           isLoggedIn

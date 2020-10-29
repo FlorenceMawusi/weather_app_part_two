@@ -47,7 +47,6 @@ export default function Signup({ onSuccess = () => {} }) {
             <br />
             <input onClick={checkSignup} type="button" value="Sign Up" />
           </form>
-          e
         </Modal.Body>
       </Modal.Dialog>
     </>

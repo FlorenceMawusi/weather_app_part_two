@@ -81,7 +81,7 @@ export default function WeatherFetch({ onScreen = () => {}, isLoggedIn }){
         </Form.Group>
         <Button
           onClick={(event) => searchWeatherApi(event)}
-          variant="primary"
+          variant="secondary"
           type="submit"
         >
           Search
